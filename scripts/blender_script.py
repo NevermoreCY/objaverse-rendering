@@ -49,6 +49,7 @@ context = bpy.context
 scene = context.scene
 render = scene.render
 
+print("args. engine" , args.engine)
 render.engine = args.engine
 render.image_settings.file_format = "PNG"
 render.image_settings.color_mode = "RGBA"
