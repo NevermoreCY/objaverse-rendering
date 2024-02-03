@@ -47,7 +47,7 @@ def worker(
             f" blender-3.2.2-linux-x64/blender -b -P scripts/blender_script.py --"
             f" --object_path {item}"
         )
-        subprocess.run(command)
+        subprocess.run(command, shell=True)
 
         if args.upload_to_s3:
             if item.startswith("http"):
