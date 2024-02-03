@@ -51,7 +51,13 @@ if __name__ == "__main__":
 
     object_paths = objaverse._load_object_paths()
     uids = uids[args.start_i : args.end_i]
-    print(uids)
+    print('\n\nuids: \n\n',uids)
+
+    valid_path = "valid_paths_5.json"
+    with open(valid_path, 'r') as f:
+        valid = json.load(f)
+    print('\n\n valid: \n\n', valid[:100])
+
 
     # get the uids that have already been downloaded
     if args.skip_completed:
