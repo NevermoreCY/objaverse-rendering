@@ -104,7 +104,7 @@ if __name__ == "__main__":
         print("item_id ,", c )
         c+=1
 
-        cmd = ['blender-3.2.2-linux-x64/blender  -b -P scripts/blender_script.py -- ', '--object_path', item , '--output_dir', './views', '--engine' 'CYCLES', '--num_images','12' ]
+        cmd = ['blender-3.2.2-linux-x64/blender  -b -P scripts/blender_script.py -- --object_path', item , '--output_dir', './views', '--engine' 'CYCLES', '--num_images','12' ]
         # result = subprocess.run(cmd, shell=True, capture_output=True, text=True).wait()
         # print(result.stdout)
 
