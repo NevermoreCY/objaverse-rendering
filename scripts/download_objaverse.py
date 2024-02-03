@@ -47,6 +47,8 @@ if __name__ == "__main__":
 
     random.shuffle(uids)
 
+    print(uids)
+
     object_paths = objaverse._load_object_paths()
     uids = uids[args.start_i : args.end_i]
 
