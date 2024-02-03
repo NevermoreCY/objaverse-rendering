@@ -100,13 +100,17 @@ if __name__ == "__main__":
         model_paths = json.load(f)
 
     c = 0
-    for item in model_paths:
+    for item in model_paths[:10]:
         print("item_id ,", c )
         c+=1
 
         cmd = ['blender-3.2.2-linux-x64/blender  -b -P scripts/blender_script.py -- ', '--object_path', item , '--output_dir', './views', '--engine' 'CYCLES', '--num_images','12' ]
-        result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-        print(result.stdout)
+        # result = subprocess.run(cmd, shell=True, capture_output=True, text=True).wait()
+        # print(result.stdout)
+
+        process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
+        process.wait()
+        print(process.returncode)
 
     # # Wait for all tasks to be completed
     # queue.join()
