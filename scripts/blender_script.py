@@ -37,7 +37,7 @@ parser.add_argument(
 )
 parser.add_argument("--output_dir", type=str, default="./views")
 parser.add_argument(
-    "--engine", type=str, default="BLENDER_EEVEE", choices=["CYCLES", "BLENDER_EEVEE"]
+    "--engine", type=str, default="CYCLES", choices=["CYCLES", "BLENDER_EEVEE"]
 )
 parser.add_argument("--num_images", type=int, default=12)
 parser.add_argument("--camera_dist", type=int, default=1.5)
