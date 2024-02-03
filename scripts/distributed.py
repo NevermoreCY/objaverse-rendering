@@ -47,7 +47,7 @@ def worker(
             f" blender-3.2.2-linux-x64/blender -b -P scripts/blender_script.py --"
             f" --object_path {item}"
         )
-        subprocess.run(command, shell=True)
+        subprocess.run(command)
 
         if args.upload_to_s3:
             if item.startswith("http"):
@@ -90,20 +90,6 @@ if __name__ == "__main__":
         model_paths = json.load(f)
     for item in model_paths:
         queue.put(item)
-
-    # update the wandb count
-    if args.log_to_wandb:
-        while True:
-            time.sleep(5)
-            wandb.log(
-                {
-                    "count": count.value,
-                    "total": len(model_paths),
-                    "progress": count.value / len(model_paths),
-                }
-            )
-            if count.value == len(model_paths):
-                break
 
     # Wait for all tasks to be completed
     queue.join()
