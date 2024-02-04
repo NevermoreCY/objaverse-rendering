@@ -384,8 +384,8 @@ if __name__ == "__main__":
         end_i = time.time()
         print("Finished", local_path, "in", end_i - start_i, "seconds")
         # delete the object if it was downloaded
-        # if args.object_path.startswith("http"):
-        #     os.remove(local_path)
+        if args.object_path.startswith("http"):
+            os.remove(local_path)
     except Exception as e:
         print("Failed to render", args.object_path)
         print(e)
