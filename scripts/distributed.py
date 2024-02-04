@@ -11,6 +11,8 @@ import boto3
 import tyro
 import wandb
 
+# C = 0
+
 
 @dataclass
 class Args:
@@ -44,13 +46,15 @@ def worker(
     s3: Optional[boto3.client],
     out_dir: str,
 ) -> None:
+    C=0
     while True:
         item = queue.get()
         if item is None:
             break
 
         # Perform some operation on the item
-        print(item, gpu)
+        print('\n\n\n\n\n\n\n\n\n' , C ,item, )
+        C+=1
         command = (
             f" blender-3.2.2-linux-x64/blender -b -P scripts/blender_script_MVD.py --"
             f" --object_path {item}"
@@ -100,19 +104,19 @@ if __name__ == "__main__":
     with open(args.input_models_path, "r") as f:
         model_paths = json.load(f)
 
-    # print('\n\n\n\n\n model paths', type(model_paths), len(model_paths))
-    # L = len(model_paths)
-    # interval = L // 32
-    #
-    #
-    # start_id = args.job_num * interval
-    # end_id = start_id + interval
-    #
-    # if args.job_num == 32:
-    #     end_id = L
-    #
-    # model_paths = model_paths[start_id:end_id]
-    # print('\n\n\n\n curent start id is ', start_id, ' end id is ', end_id, ' interval is ', len(model_paths))
+    print('\n\n\n\n\n model paths', type(model_paths), len(model_paths))
+    L = len(model_paths)
+    interval = L // 32
+
+
+    start_id = args.job_num * interval
+    end_id = start_id + interval
+
+    if args.job_num == 32:
+        end_id = L
+
+    model_paths = model_paths[start_id:end_id]
+    print('\n\n\n\n curent start id is ', start_id, ' end id is ', end_id, ' interval is ', len(model_paths))
 
 
 
