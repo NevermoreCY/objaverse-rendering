@@ -71,5 +71,5 @@ if __name__ == "__main__":
         for uid in uids
     ]
 
-    with open("input_models_path.json", "w") as f:
+    with open("input_models_path_valid5.json", "w") as f:
         json.dump(uid_object_paths, f, indent=2)
