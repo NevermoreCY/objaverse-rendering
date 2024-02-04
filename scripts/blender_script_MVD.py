@@ -80,13 +80,15 @@ cam_constraint.track_axis = "TRACK_NEGATIVE_Z"
 cam_constraint.up_axis = "UP_Y"
 
 # setup lighting
-bpy.ops.object.light_add(type="AREA")
-light2 = bpy.data.lights["Area"]
-light2.energy = 6000
-bpy.data.objects["Area"].location[2] = 0.6
-bpy.data.objects["Area"].scale[0] = 1
-bpy.data.objects["Area"].scale[1] = 1
-bpy.data.objects["Area"].scale[2] = 1
+bpy.data.worlds["World"].node_tree.nodes["Background"].inputs[1].default_value = 10
+#
+# bpy.ops.object.light_add(type="AREA")
+# light2 = bpy.data.lights["Area"]
+# light2.energy = 6000
+# bpy.data.objects["Area"].location[2] = 0.6
+# bpy.data.objects["Area"].scale[0] = 1
+# bpy.data.objects["Area"].scale[1] = 1
+# bpy.data.objects["Area"].scale[2] = 1
 
 # import math
 # # Function to add an area light at a specific location and rotation
