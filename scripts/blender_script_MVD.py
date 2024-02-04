@@ -82,7 +82,7 @@ cam_constraint.up_axis = "UP_Y"
 # setup lighting
 bpy.ops.object.light_add(type="AREA")
 light2 = bpy.data.lights["Area"]
-light2.energy = 3000
+light2.energy = 6000
 bpy.data.objects["Area"].location[2] = 1.1
 bpy.data.objects["Area"].scale[0] = 100
 bpy.data.objects["Area"].scale[1] = 100
