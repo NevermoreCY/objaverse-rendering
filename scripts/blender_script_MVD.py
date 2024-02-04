@@ -83,35 +83,35 @@ cam_constraint.up_axis = "UP_Y"
 bpy.ops.object.light_add(type="AREA")
 light2 = bpy.data.lights["Area"]
 light2.energy = 6000
-bpy.data.objects["Area"].location[2] = 1.1
-bpy.data.objects["Area"].scale[0] = 100
-bpy.data.objects["Area"].scale[1] = 100
-bpy.data.objects["Area"].scale[2] = 100
+bpy.data.objects["Area"].location[2] = 0.6
+bpy.data.objects["Area"].scale[0] = 1
+bpy.data.objects["Area"].scale[1] = 1
+bpy.data.objects["Area"].scale[2] = 1
 
-import math
-# Function to add an area light at a specific location and rotation
-def add_area_light(name, location, rotation_euler):
-    bpy.ops.object.light_add(type='POINT', location=location)
-    light = bpy.context.object
-    light.name = name
-    # light.data.shape = 'RECTANGLE'
-    # light.data.size = 2.0  # Size of the light; adjust as needed
-    # light.rotation_euler = rotation_euler
-    return light
-
-# Define locations and rotations for 6 lights
-light_positions_rotations = [
-    (("AreaLight1", (1, 1, 1), (math.radians(45), 0, 0))),
-    (("AreaLight2", (-1, -1, 1), (math.radians(-45), 0, 0))),
-    (("AreaLight3", (1, -1, 1), (0, math.radians(45), 0))),
-    (("AreaLight4", (-1, 1, 1), (0, math.radians(-45), 0))),
-    (("AreaLight5", (0, 0, ), (math.radians(-90), 0, 0))),
-    (("AreaLight6", (0, 0, -1), (math.radians(90), 0, 0)))
-]
-
-# # Add lights to the scene
-for name, location, rotation in light_positions_rotations:
-    add_area_light(name, location, rotation)
+# import math
+# # Function to add an area light at a specific location and rotation
+# def add_area_light(name, location, rotation_euler):
+#     bpy.ops.object.light_add(type='POINT', location=location)
+#     light = bpy.context.object
+#     light.name = name
+#     # light.data.shape = 'RECTANGLE'
+#     # light.data.size = 2.0  # Size of the light; adjust as needed
+#     # light.rotation_euler = rotation_euler
+#     return light
+#
+# # Define locations and rotations for 6 lights
+# light_positions_rotations = [
+#     (("AreaLight1", (1, 1, 1), (math.radians(45), 0, 0))),
+#     (("AreaLight2", (-1, -1, 1), (math.radians(-45), 0, 0))),
+#     (("AreaLight3", (1, -1, 1), (0, math.radians(45), 0))),
+#     (("AreaLight4", (-1, 1, 1), (0, math.radians(-45), 0))),
+#     (("AreaLight5", (0, 0, ), (math.radians(-90), 0, 0))),
+#     (("AreaLight6", (0, 0, -1), (math.radians(90), 0, 0)))
+# ]
+#
+# # # Add lights to the scene
+# for name, location, rotation in light_positions_rotations:
+#     add_area_light(name, location, rotation)
 
 
 
