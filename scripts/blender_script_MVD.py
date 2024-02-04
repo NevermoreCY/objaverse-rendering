@@ -91,7 +91,7 @@ bpy.data.objects["Area"].scale[2] = 100
 import math
 # Function to add an area light at a specific location and rotation
 def add_area_light(name, location, rotation_euler):
-    bpy.ops.object.light_add(type='AREA', location=location)
+    bpy.ops.object.light_add(type='POINT', location=location)
     light = bpy.context.object
     light.name = name
     light.data.shape = 'RECTANGLE'
