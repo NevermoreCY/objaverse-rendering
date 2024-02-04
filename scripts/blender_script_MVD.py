@@ -124,10 +124,10 @@ render.resolution_percentage = 100
 
 scene.cycles.device = "GPU"
 scene.cycles.samples = 32
-scene.cycles.diffuse_bounces = 1
-scene.cycles.glossy_bounces = 1
-scene.cycles.transparent_max_bounces = 3
-scene.cycles.transmission_bounces = 3
+scene.cycles.diffuse_bounces = 10
+scene.cycles.glossy_bounces = 10
+scene.cycles.transparent_max_bounces = 30
+scene.cycles.transmission_bounces = 30
 scene.cycles.filter_width = 0.01
 scene.cycles.use_denoising = True
 scene.render.film_transparent = True
