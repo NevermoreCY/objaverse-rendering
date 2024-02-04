@@ -82,8 +82,8 @@ cam_constraint.up_axis = "UP_Y"
 # setup lighting
 bpy.ops.object.light_add(type="AREA")
 light2 = bpy.data.lights["Area"]
-light2.energy = 3000
-bpy.data.objects["Area"].location[2] = 0.7
+light2.energy = 6000
+bpy.data.objects["Area"].location[2] = 1.1
 bpy.data.objects["Area"].scale[0] = 100
 bpy.data.objects["Area"].scale[1] = 100
 bpy.data.objects["Area"].scale[2] = 100
@@ -124,10 +124,10 @@ render.resolution_percentage = 100
 
 scene.cycles.device = "GPU"
 scene.cycles.samples = 32
-scene.cycles.diffuse_bounces = 1
-scene.cycles.glossy_bounces = 1
-scene.cycles.transparent_max_bounces = 3
-scene.cycles.transmission_bounces = 3
+scene.cycles.diffuse_bounces = 10
+scene.cycles.glossy_bounces = 10
+scene.cycles.transparent_max_bounces = 30
+scene.cycles.transmission_bounces = 30
 scene.cycles.filter_width = 0.01
 scene.cycles.use_denoising = True
 scene.render.film_transparent = True
