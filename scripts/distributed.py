@@ -20,6 +20,9 @@ class Args:
     input_models_path: str
     """Path to a json file containing a list of 3D object files"""
 
+    out_dir: str
+    """Path to a json file containing a list of 3D object files"""
+
     upload_to_s3: bool = False
     """Whether to upload the rendered images to S3"""
 
@@ -30,11 +33,14 @@ class Args:
     """number of gpus to use. -1 means all available gpus"""
 
 
+
+
 def worker(
     queue: multiprocessing.JoinableQueue,
     count: multiprocessing.Value,
     gpu: int,
     s3: Optional[boto3.client],
+    out_dir: str,
 ) -> None:
     while True:
         item = queue.get()
@@ -44,8 +50,9 @@ def worker(
         # Perform some operation on the item
         print(item, gpu)
         command = (
-            f" blender-3.2.2-linux-x64/blender -b -P scripts/blender_script.py --"
+            f" blender-3.2.2-linux-x64/blender -b -P scripts/blender_script_MVD.py --"
             f" --object_path {item}"
+            f" --output_dir "
         )
         subprocess.run(command, shell=True)
 
@@ -72,6 +79,8 @@ if __name__ == "__main__":
     queue = multiprocessing.JoinableQueue()
     count = multiprocessing.Value("i", 0)
 
+    out_dir = args.out_dir
+
     if args.log_to_wandb:
         wandb.init(project="objaverse-rendering", entity="prior-ai2")
 
@@ -80,7 +89,7 @@ if __name__ == "__main__":
         for worker_i in range(args.workers_per_gpu):
             worker_i = gpu_i * args.workers_per_gpu + worker_i
             process = multiprocessing.Process(
-                target=worker, args=(queue, count, gpu_i, s3)
+                target=worker, args=(queue, count, gpu_i, s3, out_dir)
             )
             process.daemon = True
             process.start()
