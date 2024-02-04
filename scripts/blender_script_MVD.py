@@ -160,7 +160,7 @@ def set_camera_location(elevation, azimuth, distance):
 
     camera.data.lens_unit = 'FOV'
     # fov = random.uniform(40.,60.)
-    fov = 15
+    fov = 30
     camera.data.angle = math.radians(fov) # convert degrees into radians
 
 
