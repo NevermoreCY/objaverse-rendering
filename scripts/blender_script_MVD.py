@@ -95,8 +95,8 @@ def add_area_light(name, location, rotation_euler):
     light = bpy.context.object
     light.name = name
     # light.data.shape = 'RECTANGLE'
-    light.data.size = 2.0  # Size of the light; adjust as needed
-    light.rotation_euler = rotation_euler
+    # light.data.size = 2.0  # Size of the light; adjust as needed
+    # light.rotation_euler = rotation_euler
     return light
 
 # Define locations and rotations for 6 lights
