@@ -52,7 +52,7 @@ def worker(
         command = (
             f" blender-3.2.2-linux-x64/blender -b -P scripts/blender_script_MVD.py --"
             f" --object_path {item}"
-            f" --output_dir "
+            f" --output_dir {out_dir}"
         )
         subprocess.run(command, shell=True)
 
