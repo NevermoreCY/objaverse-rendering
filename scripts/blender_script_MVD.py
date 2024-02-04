@@ -320,7 +320,7 @@ def save_images(object_file: str) -> None:
     cam_constraint.target = empty
 
     # elevation = random.uniform(0., 30.)
-    elevation = 20
+    elevation = 30
     azimuth = (random.randint(0, 32)) / 32 * 360
     # azimuth = random.uniform(0., 360)
     distance = random.uniform(1.4, 1.6)
