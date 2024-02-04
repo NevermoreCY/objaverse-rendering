@@ -97,6 +97,8 @@ if __name__ == "__main__":
     # Add items to the queue
     with open(args.input_models_path, "r") as f:
         model_paths = json.load(f)
+
+    print(type(model_paths), len(model_paths))
     for item in model_paths:
         queue.put(item)
 
