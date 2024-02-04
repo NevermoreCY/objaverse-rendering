@@ -11,6 +11,8 @@ import boto3
 import tyro
 import wandb
 
+# C = 0
+
 
 @dataclass
 class Args:
@@ -44,13 +46,15 @@ def worker(
     s3: Optional[boto3.client],
     out_dir: str,
 ) -> None:
+    C=0
     while True:
         item = queue.get()
         if item is None:
             break
 
         # Perform some operation on the item
-        print(item, gpu)
+        print('\n\n\n\n\n\n\n\n\n' , C ,item, )
+        C+=1
         command = (
             f" blender-3.2.2-linux-x64/blender -b -P scripts/blender_script_MVD.py --"
             f" --object_path {item}"
