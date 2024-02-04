@@ -105,16 +105,17 @@ if __name__ == "__main__":
         c+=1
         print(item)
 
-        cmd = 'blender-3.2.2-linux-x64/blender  -b -P scripts/blender_script.py -- --object_path' + ' ' + item + ' --output_dir ./views --engine CYCLES --num_images 12'
+        cmd = 'blender-3.2.2-linux-x64/blender  -b -P scripts_zero123/blender_script_MVD.py -- --object_path' + ' ' + item + ' --output_dir ./views --engine CYCLES --num_images 12'
         # result = subprocess.run(cmd, shell=True, capture_output=True, text=True).wait()
         # print(result.stdout)
-        print('cmd is ', cmd)
-
-        cmd = [cmd]
-
-        process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
-        process.wait()
-        print(process.returncode)
+        os.system(cmd)
+        # print('cmd is ', cmd)
+        #
+        # cmd = [cmd]
+        #
+        # process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
+        # process.wait()
+        # print(process.returncode)
 
     # # Wait for all tasks to be completed
     # queue.join()
