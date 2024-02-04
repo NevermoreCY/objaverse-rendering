@@ -150,17 +150,33 @@ def sample_spherical(radius_min=1.5, radius_max=2.0, maxz=1.6, minz=-0.75):
 #
 # def change_azimuth():
 
+# def set_camera_location(elevation, azimuth, distance):
+#     # set location
+#     x = 1 * math.cos(math.radians(-azimuth)) * math.cos(math.radians(elevation)) * distance
+#     y = 1 * math.sin(math.radians(-azimuth)) * math.cos(math.radians(elevation)) * distance
+#     z = 1 * math.sin(math.radians(elevation)) * distance
+#     camera = bpy.data.objects["Camera"]
+#     camera.location = x, y, z
+#
+#     # look at center
+#     direction = - camera.location
+#     rot_quat = direction.to_track_quat('-Z', 'Y')
+#     camera.rotation_euler = rot_quat.to_euler()
 
 
 def set_camera_location(elevation, azimuth, distance):
     # from https://blender.stackexchange.com/questions/18530/
-    x, y, z = sample_spherical(radius_min=1.4, radius_max=1.6, maxz=2.2, minz=-2.2)
+    # random sample ?
+    # x, y, z = sample_spherical(radius_min=1.4, radius_max=1.6, maxz=2.2, minz=-2.2)
+    x = 1 * math.cos(math.radians(-azimuth)) * math.cos(math.radians(elevation)) * distance
+    y = 1 * math.sin(math.radians(-azimuth)) * math.cos(math.radians(elevation)) * distance
+    z = 1 * math.sin(math.radians(elevation)) * distance
     camera = bpy.data.objects["Camera"]
     camera.location = x, y, z
 
     camera.data.lens_unit = 'FOV'
-    # fov = random.uniform(40.,60.)
-    fov = 60
+    fov = random.uniform(40.,60.)
+    # fov = 60
     camera.data.angle = math.radians(fov) # convert degrees into radians
 
 
@@ -303,7 +319,8 @@ def save_images(object_file: str) -> None:
     scene.collection.objects.link(empty)
     cam_constraint.target = empty
 
-    elevation = random.uniform(0., 30.)
+    # elevation = random.uniform(0., 30.)
+    elevation = 0
     azimuth = (random.randint(0, 32)) / 32 * 360
     # azimuth = random.uniform(0., 360)
     distance = random.uniform(1.4, 1.6)
