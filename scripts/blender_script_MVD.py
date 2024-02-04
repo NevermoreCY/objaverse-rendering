@@ -36,7 +36,9 @@ from mathutils import Vector
 # Normalize object into unit cube
 # Camera distance , random sample [1.4, 1.6]
 # Fov between [40,60]
+# test 15,30,45,60
 # Elevation [0,30]
+# 0,10,20,30
 # Light: enviroment light >> point light
 # 32 uniformly distributed azimuth angles , then randomly choose start point.
 # RGBA format , background is random grayscale color
@@ -157,7 +159,8 @@ def set_camera_location(elevation, azimuth, distance):
     camera.location = x, y, z
 
     camera.data.lens_unit = 'FOV'
-    fov = random.uniform(40.,60.)
+    # fov = random.uniform(40.,60.)
+    fov = 15
     camera.data.angle = math.radians(fov) # convert degrees into radians
 
 
