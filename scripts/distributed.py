@@ -117,7 +117,7 @@ if __name__ == "__main__":
     if args.job_num % 2 == 0:
         start_id = start_id + 6140
 
-    if args.job_num == 64:
+    if args.job_num == 63:
         end_id = L
 
     # 119389  , 7461
