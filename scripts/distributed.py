@@ -114,8 +114,8 @@ if __name__ == "__main__":
     end_id = start_id + interval
 
     # ensure all on same stage
-    # if args.job_num % 2 == 0:
-    # start_id = start_id + 6900
+    if args.job_num % 2 == 0:
+        start_id = start_id + 6900
 
     if args.job_num == 63:
         end_id = L
