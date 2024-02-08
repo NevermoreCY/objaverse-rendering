@@ -109,22 +109,22 @@ if __name__ == "__main__":
 
     #-------------------
 
-    # L = len(model_paths)
-    # interval = L // 64
+    L = len(model_paths)
+    interval = L // 64
 
-    # start_id = args.job_num * interval
-    # end_id = start_id + interval
-    #
-    # # ensure all on same stage
-    # # if args.job_num % 2 == 0:
-    # #     start_id = start_id + 6900
-    #
-    # if args.job_num == 63:
-    #     end_id = L
-    # 119389  , 7461
+    start_id = args.job_num * interval
+    end_id = start_id + interval
 
-    # model_paths = model_paths[start_id:end_id]
-    # print('\n\n\n\n curent start id is ', start_id, ' end id is ', end_id, ' interval is ', len(model_paths))
+    # ensure all on same stage
+    # if args.job_num % 2 == 0:
+    #     start_id = start_id + 6900
+
+    if args.job_num == 63:
+        end_id = L
+    119389  , 7461
+
+    model_paths = model_paths[start_id:end_id]
+    print('\n\n\n\n curent start id is ', start_id, ' end id is ', end_id, ' interval is ', len(model_paths))
 
     #------------------
 
