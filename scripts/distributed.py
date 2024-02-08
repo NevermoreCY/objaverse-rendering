@@ -105,20 +105,25 @@ if __name__ == "__main__":
         model_paths = json.load(f)
 
     print('\n\n\n\n\n model paths', type(model_paths), len(model_paths))
-    L = len(model_paths)
-    interval = L // 64
 
 
+    #-------------------
+    # L = len(model_paths)
+    # interval = L // 64
+    #
+    #
+    #
+    # start_id = args.job_num * interval
+    # end_id = start_id + interval
+    #
+    # # ensure all on same stage
+    # # if args.job_num % 2 == 0:
+    # #     start_id = start_id + 6900
+    #
+    # if args.job_num == 63:
+    #     end_id = L
 
-    start_id = args.job_num * interval
-    end_id = start_id + interval
-
-    # ensure all on same stage
-    # if args.job_num % 2 == 0:
-    #     start_id = start_id + 6900
-
-    if args.job_num == 63:
-        end_id = L
+    #------------
 
     # 119389  , 7461
 
