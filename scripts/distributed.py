@@ -121,7 +121,7 @@ if __name__ == "__main__":
 
     if args.job_num == 63:
         end_id = L
-    119389  , 7461
+    # 119389  , 7461
 
     model_paths = model_paths[start_id:end_id]
     print('\n\n\n\n curent start id is ', start_id, ' end id is ', end_id, ' interval is ', len(model_paths))
