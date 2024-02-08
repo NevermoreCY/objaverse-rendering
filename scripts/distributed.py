@@ -7,7 +7,7 @@ import time
 from dataclasses import dataclass
 from typing import Optional
 
-# import boto3
+import boto3
 import tyro
 import wandb
 
