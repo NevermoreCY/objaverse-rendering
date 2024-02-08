@@ -110,7 +110,7 @@ if __name__ == "__main__":
     #-------------------
 
     L = len(model_paths)
-    interval = L // 64
+    interval = L // 72
 
     start_id = args.job_num * interval
     end_id = start_id + interval
@@ -119,7 +119,7 @@ if __name__ == "__main__":
     # if args.job_num % 2 == 0:
     #     start_id = start_id + 6900
 
-    if args.job_num == 63:
+    if args.job_num == 71:
         end_id = L
     # 119389  , 7461
 
