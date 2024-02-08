@@ -80,7 +80,7 @@ cam_constraint.track_axis = "TRACK_NEGATIVE_Z"
 cam_constraint.up_axis = "UP_Y"
 
 # setup lighting
-bpy.data.worlds["World"].node_tree.nodes["Background"].inputs[1].default_value = 20
+bpy.data.worlds["World"].node_tree.nodes["Background"].inputs[1].default_value = 40
 #
 # bpy.ops.object.light_add(type="AREA")
 # light2 = bpy.data.lights["Area"]
