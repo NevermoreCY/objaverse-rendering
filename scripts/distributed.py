@@ -7,7 +7,7 @@ import time
 from dataclasses import dataclass
 from typing import Optional
 
-import boto3
+# import boto3
 import tyro
 import wandb
 
@@ -81,7 +81,7 @@ def worker(
 if __name__ == "__main__":
     args = tyro.cli(Args)
 
-    s3 = boto3.client("s3") if args.upload_to_s3 else None
+    s3 =  None
     queue = multiprocessing.JoinableQueue()
     count = multiprocessing.Value("i", 0)
 
