@@ -24,7 +24,7 @@ class Args:
 if __name__ == "__main__":
     args = tyro.cli(Args)
 
-    input_models_path = '/objaverse/valid_paths_5.json'
+    input_models_path = '/objaverse/objaverse-rendering/valid_paths_5.json'
 
     with open(input_models_path, "r") as f:
         model_paths = json.load(f)
