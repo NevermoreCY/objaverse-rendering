@@ -350,9 +350,10 @@ def save_images(object_file: str) -> None:
 
     # elevation = random.uniform(0., 30.)
     elevation = 30
-    azimuth = (random.randint(0, 32)) / 32 * 360
+    azimuth = 0
     # azimuth = random.uniform(0., 360)
-    distance = random.uniform(1.4, 1.6)
+    distance = 1.5
+    # distance = random.uniform(1.4, 1.6)
 
     camera = set_camera_location(elevation, azimuth, distance)
 
