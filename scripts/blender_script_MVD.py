@@ -383,7 +383,7 @@ def save_images(object_file: str) -> None:
         np.save(RT_path, RT)
 
         # update azimuth angle
-        azimuth = (azimuth + 90) % 360
+        # azimuth = (azimuth + 90) % 360
         set_camera_location(elevation, azimuth, distance)
 
 
